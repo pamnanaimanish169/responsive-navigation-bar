@@ -18,6 +18,9 @@ export class LoginModalComponent implements OnInit {
 
   login() {
     if (this.email == "email@email.com" && this.password == "p@ssword") {
+      // The value can be changes to the token value.
+      this.toastrService.success('LogIn Sucessfully...');
+      localStorage.setItem('currentUser', 'LoggedIn');
       this.router.navigate(['home']);
     } else {
      this.toastrService.error('Bad Credentials');
@@ -26,5 +29,8 @@ export class LoginModalComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // To Implement the logout functionality, try setting a item in local storage and then reading it in home(i.e. sidebar menu). 
+  // If the localStorage Item exists then User is logged in & show the logout component in place of login compoentn
 
 }
